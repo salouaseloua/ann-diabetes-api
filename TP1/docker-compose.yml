@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  api-flask:
+    build: .
+    image: flask-ann-simple:latest
+    environment:
+      - MODEL_PATH=/models/iris_ann_model.h5
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./iris_ann_model.h5:/models/iris_ann_model.h5:ro
+    restart: unless-stopped
